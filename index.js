@@ -20,6 +20,9 @@ class GF {
     if(program.finish) {
       this.finish()
     }
+    if(program.release) {
+      this.release()
+    }
   }
   init() {
     // console.log(sh.exec('git flow init')) // TODO: bug for shelljs: https://github.com/shelljs/shelljs/issues/424
