@@ -32,6 +32,7 @@ class GF {
     child_process.execSync('git flow init', {stdio: 'inherit'})
   }
   develop(name) {
+    // TODO: develop如何同步的问题
     sh.exec(`git flow develop start ${name}`)
   }
   feature(name) {
