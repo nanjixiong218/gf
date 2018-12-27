@@ -43,6 +43,7 @@ class GF {
     sh.exec(`git flow release start ${this.version}`)
   }
   hotfix() {
+    // 这里是要打tag的，所有patch也需要有规则
     sh.exec(`git flow hotfix start ${this.version}-patch`)  
   }
   finish() {
