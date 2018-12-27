@@ -6,7 +6,7 @@ program.version(pkg.version, '-v, --version')
 .option('-i, --init', 'git flow init')
 .option('-f, --feature <n>', 'git flow feature start')
 .option('--finish', 'git flow xxx publish xx')
-.option('-r, --release <n>', 'git flow release start')
+.option('-r, --release', 'git flow release start')
 .parse(process.argv)
 
 gf.boot(program)
