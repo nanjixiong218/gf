@@ -1,5 +1,7 @@
 const sh = require('shelljs')
 const child_process = require('child_process')
+const parseGit = require('parse-git-config');
+const gitRev = require('git-rev-sync')
 sh.config.fatal = true
 sh.config.verbose = true
 class GF {
@@ -14,6 +16,9 @@ class GF {
     if(program.feature) {
       let featureName = program.feature
       this.feature(featureName)
+    }
+    if(program.finish) {
+      this.finish()
     }
   }
   init() {
@@ -31,6 +36,13 @@ class GF {
   }
   hotfix(name) {
     sh.exec(`git flow hotfix start ${name}`)  
+  }
+  finish() {
+    // TODO: 合法性校验
+    const currentBranch = gitRev.branch()
+    const typeName = currentBranch.split('/')[0]
+    const customName = currentBranch.split('/')[1]
+    sh.exec(`git flow ${typeName} finish ${customName}`)
   }
 }
 
