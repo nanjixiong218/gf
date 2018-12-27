@@ -1,0 +1,20 @@
+{
+  "name": "@astam/gf",
+  "bin": {
+    "fl": "bin/index.js"
+  },
+  "version": "1.0.0",
+  "description": "小牛哥 git-flow工作流简化工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "夏驰",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "git-rev-sync": "^1.12.0",
+    "parse-git-config": "^3.0.0",
+    "shelljs": "^0.8.3"
+  }
+}
