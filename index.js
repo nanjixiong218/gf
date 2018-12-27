@@ -21,8 +21,7 @@ class GF {
       this.finish()
     }
     if(program.release) {
-      let releaseName = program.release
-      this.release(releaseName)
+      this.release()
     }
   }
   init() {
@@ -35,9 +34,10 @@ class GF {
   feature(name) {
     sh.exec(`git flow feature start ${name}`)
   }
-  release(name) {
-    // TODO: 添加版本号校验
-    sh.exec(`git flow release start ${name}`)
+  release() {
+    // TODO: 添加版本号校验, 不需要name, 版本号来自于pkg
+    const version = pkg.version 
+    sh.exec(`git flow release start ${version}`)
   }
   hotfix(name) {
     sh.exec(`git flow hotfix start ${name}`)  
