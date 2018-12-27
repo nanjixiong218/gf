@@ -2,11 +2,12 @@ const sh = require('shelljs')
 const child_process = require('child_process')
 const parseGit = require('parse-git-config');
 const gitRev = require('git-rev-sync')
+const pkg = require('./package.json')
 sh.config.fatal = true
 sh.config.verbose = true
 class GF {
   constructor() {
-
+    this.version = pkg.version
   }
   boot(program) {
     if(program.init) {
@@ -23,6 +24,9 @@ class GF {
     if(program.release) {
       this.release()
     }
+    if(program.hotfix) {
+      this.hotfix()
+    }
   }
   init() {
     // console.log(sh.exec('git flow init')) // TODO: bug for shelljs: https://github.com/shelljs/shelljs/issues/424
@@ -36,11 +40,10 @@ class GF {
   }
   release() {
     // TODO: 添加版本号校验, 不需要name, 版本号来自于pkg
-    const version = pkg.version 
-    sh.exec(`git flow release start ${version}`)
+    sh.exec(`git flow release start ${this.version}`)
   }
-  hotfix(name) {
-    sh.exec(`git flow hotfix start ${name}`)  
+  hotfix() {
+    sh.exec(`git flow hotfix start ${this.version}`)  
   }
   finish() {
     // TODO: 合法性校验
