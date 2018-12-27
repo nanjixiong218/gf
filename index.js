@@ -47,7 +47,7 @@ class GF {
     const currentBranch = gitRev.branch()
     const typeName = currentBranch.split('/')[0]
     const customName = currentBranch.split('/')[1]
-    sh.exec(`git flow ${typeName} finish ${customName}`)
+    child_process.execSync(`git flow ${typeName} finish ${customName}`, {stdio: 'inherit'})
   }
 }
 
