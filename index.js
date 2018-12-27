@@ -21,7 +21,8 @@ class GF {
       this.finish()
     }
     if(program.release) {
-      this.release()
+      let releaseName = program.release
+      this.release(releaseName)
     }
   }
   init() {
@@ -35,6 +36,7 @@ class GF {
     sh.exec(`git flow feature start ${name}`)
   }
   release(name) {
+    // TODO: 添加版本号校验
     sh.exec(`git flow release start ${name}`)
   }
   hotfix(name) {
@@ -45,7 +47,7 @@ class GF {
     const currentBranch = gitRev.branch()
     const typeName = currentBranch.split('/')[0]
     const customName = currentBranch.split('/')[1]
-    sh.exec(`git flow ${typeName} finish ${customName}`)
+    child_process.execSync(`git flow ${typeName} finish ${customName}`, {stdio: 'inherit'})
   }
 }
 
