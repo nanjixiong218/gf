@@ -43,7 +43,7 @@ class GF {
     sh.exec(`git flow release start ${this.version}`)
   }
   hotfix() {
-    sh.exec(`git flow hotfix start ${this.version}`)  
+    sh.exec(`git flow hotfix start ${this.version}-patch`)  
   }
   finish() {
     // TODO: 合法性校验
