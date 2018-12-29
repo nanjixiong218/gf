@@ -1,9 +1,15 @@
 const sh = require('shelljs')
-const child_process = require('child_process')
-const gitRev = require('git-rev-sync')
+const pkg = require('../../package.json')
+const fsp = require('fs-promise')
+const path = require('path')
 
-module.exports = function(program) {
-  // 这里是要打tag的，所有patch也需要有规则
+module.exports = function(program, baseInfo) {
   const timestamp = new Date().getTime()
-  sh.exec(`git flow hotfix start ${this.version}-patch-${timestamp}`)  
+  const patchVersion = `${baseInfo.version}-patch-${timestamp}`
+  sh.exec(`git flow hotfix start ${patchVersion}`)
+  sh.exec(`git push -u origin hotfix/${patchVersion}`)
+  // 修改 package.json 的 version: patchVersion
+  pkg.version = patchVersion
+  const pkgString = JSON.stringify(pkg, null, 2)
+  fsp.writeFile(path.join(baseInfo.cwd, 'package.json'), pkgString, 'utf-8') 
 }
