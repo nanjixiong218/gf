@@ -1,5 +1,5 @@
 {
-  "name": "@astam/fl",
+  "name": "@asman/fl",
   "bin": {
     "fl": "bin/index.js"
   },
