@@ -1,13 +1,13 @@
 const sh = require('shelljs')
 
-const pkg = require('./package.json')
+const baseInfo = require('./src/baseInfo')
 const fsp = require('fs-promise')
 
 sh.config.fatal = true
 sh.config.verbose = true
 class GF {
   constructor() {
-    this.version = pkg.version
+
   }
   async boot(program) {
     const cmdPathBase = './src/cmd'
@@ -17,7 +17,7 @@ class GF {
       const cmdName = cmdFile.split('.')[0]
       if(cmdName in program) {
         const cmd = require(`${cmdPathBase}/${cmdFile}`)
-        cmd(program)
+        cmd(program, baseInfo)
         return
       }
     }
