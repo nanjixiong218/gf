@@ -13,7 +13,7 @@ npm install -g @asman/fl
 or
 
 ```
-yarn add -g @asman/fl
+yarn global add @asman/fl
 ```
 
 ## 分支说明
