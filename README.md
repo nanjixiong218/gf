@@ -1,6 +1,6 @@
 # git flow 工作流简化操作
 
- ** 此仓库尚在内部测试阶段，请谨慎使用 **
+ **此仓库尚在内部测试阶段，请谨慎使用**
  git flow 是一种有效的分支管理方式，本仓库针对主流 git flow 工作，稍微修改，定制了一套自己的git操作工作流和简化的api
  
 # 安装
@@ -72,7 +72,7 @@ git flow 环境初始化, 会创建 master 分支 和 develop 分支并 `push -u
 2. 如果是 release 分支: 会合并到develop 和 master, 打上`version` 的tag, 并同时删除本地和远程分支, 切换回master分支
 3. 如果是 hotfix 分支: 会合并到develop 和 master 分支, 打上`patchVersion`的tag, 并同时删除本地和远程分支, 切换回 master分支
 
-# TODOS
+## TODOS
 
 * publish命令
 * 测试用例编写
