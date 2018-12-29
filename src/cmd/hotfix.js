@@ -12,5 +12,5 @@ module.exports = function(program, baseInfo) {
   pkg.version = patchVersion
   const pkgString = JSON.stringify(pkg)
   console.log(pkgString)
-  fsp.writeFile('../../package.json', pkgString, 'utf-8', ) 
+  fsp.writeFile('../../package.json', pkgString, 'utf-8') 
 }
