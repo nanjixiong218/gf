@@ -8,4 +8,7 @@ module.exports = function() {
   const typeName = currentBranch.split('/')[0]
   const customName = currentBranch.split('/')[1]
   child_process.execSync(`git flow ${typeName} finish ${customName}`, {stdio: 'inherit'})
+  if(typeName === 'release') { // release finish 后切到 develop 分支
+    sh.exec('git checkout develop')
+  }
 }
