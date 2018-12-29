@@ -1,5 +1,5 @@
 const sh = require('shelljs')
-
+const path = require('path')
 const baseInfo = require('./src/baseInfo')
 const fsp = require('fs-promise')
 
@@ -10,7 +10,7 @@ class GF {
 
   }
   async boot(program) {
-    const cmdPathBase = './src/cmd'
+    const cmdPathBase = path.join(__dirname, './src/cmd')
     const dirs = await fsp.readdir(cmdPathBase)
     const cmd = null
     for (const cmdFile of dirs) {
