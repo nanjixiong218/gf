@@ -96,3 +96,5 @@ fl -h
 * 测试用例编写
 * 统一异常处理
 * develop 和 master 分支的自动同步检测
+* version命令进行版本管理
+* window平台和node版本兼容性测试 
