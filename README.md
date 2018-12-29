@@ -85,6 +85,11 @@ fl -f xxx // git flow feature start xxx
 2. 如果是 release 分支: 会合并到develop 和 master, 打上`version` 的tag, 并同时删除本地和远程分支, 切换回master分支
 3. 如果是 hotfix 分支: 会合并到develop 和 master 分支, 打上`patchVersion`的tag, 并同时删除本地和远程分支, 切换回 master分支
 
+### help
+
+```
+fl -h
+```
 ## TODOS
 
 * publish命令
