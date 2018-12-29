@@ -12,6 +12,5 @@ module.exports = function(program, baseInfo) {
   // 修改 package.json 的 version: ${baseInfo.version}-patch-${timestamp} 
   pkg.version = patchVersion
   const pkgString = JSON.stringify(pkg, null, 2)
-  console.log(pkgString)
   fsp.writeFile(path.join(cwd, 'package.json'), pkgString, 'utf-8') 
 }
