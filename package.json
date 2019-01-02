@@ -3,7 +3,7 @@
   "bin": {
     "fl": "bin/index.js"
   },
-  "version": "1.0.5-patch-1546431553922",
+  "version": "1.0.6",
   "description": "小牛哥 git-flow工作流简化工具",
   "main": "index.js",
   "scripts": {
