@@ -13,7 +13,7 @@ module.exports = function(program, baseInfo) {
 
   }
   if(typeName === 'feature') {
-    sh.exec(`git push origin --delete ${currentBranch}`)
+    // sh.exec(`git push origin --delete ${currentBranch}`)
   }
   if(typeName === 'hotfix') { // hotfix 后切到 master
     sh.exec(`git push origin --delete ${currentBranch}`)
