@@ -1,6 +1,6 @@
 const sh = require('shelljs')
 const pkg = require('../../package.json')
-const fsp = require('fs-promise')
+const fse = require('fs-extra')
 const path = require('path')
 
 module.exports = function(program, baseInfo) {
@@ -11,5 +11,5 @@ module.exports = function(program, baseInfo) {
   // 修改 package.json 的 version: patchVersion
   pkg.version = patchVersion
   const pkgString = JSON.stringify(pkg, null, 2)
-  fsp.writeFile(path.join(baseInfo.cwd, 'package.json'), pkgString, 'utf-8') 
+  fse.writeFile(path.join(baseInfo.cwd, 'package.json'), pkgString, 'utf-8') 
 }
